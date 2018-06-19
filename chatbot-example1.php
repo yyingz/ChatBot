@@ -10,7 +10,7 @@ $bot = new BOT_API($channelSecret, $access_token);
 if (!empty($bot->isEvents)) {
 	$bot->sendMessageNew('U3a8884da940f2cb1dbbf2c30a69bd4f3', 'Not Emtry!!');
 }
-$bot->sendMessageNew('U3a8884da940f2cb1dbbf2c30a69bd4f3', 'Hello World !!');
+//$bot->sendMessageNew('U3a8884da940f2cb1dbbf2c30a69bd4f3', 'Hello World !!');
 
 if ($bot->isSuccess()) {
     echo 'Succeeded!';
