@@ -11,7 +11,8 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
-    if(strpos($message, "สวัส หวัด ดี hi hello" !== false AND $message !== "ฝันดี"){
+    $needle = "ดี สวัส หวัด";
+    if(strpos($message,$needle) !== false AND $message !== "ฝันดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
