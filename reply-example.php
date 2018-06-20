@@ -23,7 +23,7 @@
     if($message == "หิว" || "แนะนำร้านอาหาร" || "ร้านอาหาร" || "กินไรดี" || "หิวข้าว"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/sea2018,feed/th";
+        $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/michelin,feed/th";
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ที่เที่ยว
@@ -31,7 +31,6 @@
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/sea2018,feed/th";
-        $arrayPostData['messages'][1]['type'] = "text";
         $arrayPostData['messages'][1]['text'] = "https://map.nostramap.com/NostraMap/?layer/fruit2018,feed/th";
         replyMsg($arrayHeader,$arrayPostData);
     }
