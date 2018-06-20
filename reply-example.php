@@ -11,30 +11,25 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
-    $needle = "ดี";
-    if(strpos($message,$needle) !== false AND $message !== "ฝันดี"){
+    if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
         replyMsg($arrayHeader,$arrayPostData);
     }
-
-    #ร้านอาหาร
-    else if($message == "หิว" || "แนะนำร้านอาหาร" || "ร้านอาหาร" || "กินไรดี" || "หิวข้าว"){
+    else if($message == "Travel"){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/midyear2018,feed/th";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+    else if($message == "แนะนำร้านอาหาร"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/michelin,feed/th";
         replyMsg($arrayHeader,$arrayPostData);
     }
-    #ที่เที่ยว
-    else if($message == "Travel"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/sea2018,feed/th";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-
-        #ตัวอย่าง Message Type "Sticker"
+    #ตัวอย่าง Message Type "Sticker"
     else if($message == "ฝันดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "sticker";
