@@ -27,8 +27,8 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
 
-    #ตัวอย่าง Message Type "Sticker"
-    else if($message == "ฝันดี" || "ราตรีสวัสดิ์"){
+        #ตัวอย่าง Message Type "Sticker"
+    else if($message == "ฝันดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "sticker";
         $arrayPostData['messages'][0]['packageId'] = "2";
@@ -64,7 +64,6 @@
         $arrayPostData['messages'][1]['stickerId'] = "131";
         replyMsg($arrayHeader,$arrayPostData);
     }
-
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
