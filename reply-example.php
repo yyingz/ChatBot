@@ -19,11 +19,18 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
 
-    #ตัวอย่าง Share Link
-    if($message == "หิว" || "แนะนำร้านอาหาร" || "ร้านอาหาร" || "กินไรดี" || "หิวข้าว"){
+    #ร้านอาหาร
+    else if($message == "หิว" || "แนะนำร้านอาหาร" || "ร้านอาหาร" || "กินไรดี" || "หิวข้าว"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/michelin,feed/th";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+    #ที่เที่ยว
+    else if($message == "แนะนำที่เที่ยว" || "เที่ยวไหนดี" || "อยากไปเที่ยว" || "เที่ยว"){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/midyear2018,feed/th";
         replyMsg($arrayHeader,$arrayPostData);
     }
 
