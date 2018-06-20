@@ -18,6 +18,15 @@
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
         replyMsg($arrayHeader,$arrayPostData);
     }
+
+    #ตัวอย่าง Share Link
+    if($message == "หิว"){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/michelin,feed/th";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+
     #ตัวอย่าง Message Type "Sticker"
     else if($message == "ฝันดี" || "ราตรีสวัสดิ์"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -46,7 +55,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
-    else if($message == "ลาก่อน" || "bye" || "Bye" || "ไปละ"){
+    else if($message == "ลาก่อน"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
@@ -56,13 +65,6 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
 
-    #ตัวอย่าง Share Link
-    else if($message == "หิว" || "หิวข้าว" || "ร้านอาหาร" || "ร้านข้าว" || "ข้าว" || "กินไรดี"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/michelin,feed/th";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
