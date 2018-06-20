@@ -12,8 +12,7 @@
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
     $hello = "ดี";
-    $goodnight = "ฝันดี"
-    if(strpos($message, $hello) !== false && strpos($message, $goodnight) == false) {
+    if(strpos($message, $hello) !== false AND $message !== "ฝันดี") {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
