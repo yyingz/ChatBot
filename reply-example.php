@@ -21,6 +21,7 @@
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/midyear2018,feed/th";
+        $arrayPostData['messages'][1]['type'] = "text";
         $arrayPostData['messages'][1]['text'] = "https://map.nostramap.com/NostraMap/?layer/sea2018,feed/th";
         replyMsg($arrayHeader,$arrayPostData);
     }
