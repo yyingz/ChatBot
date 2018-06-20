@@ -20,7 +20,7 @@
     }
     #ตัวอย่าง Message Type "Sticker"
     $gn = "ราตรีสวัส ฝันดี GN goodnight นอน ง่วง";
-    else if(strpos($message, $gn) !== false){
+    else if($message == "ฝันดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "sticker";
         $arrayPostData['messages'][0]['packageId'] = "2";
@@ -48,7 +48,7 @@
     }
     #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
     $bye = "goodbye bye บาย ลา ก่อน";
-    else if(strpos($message, $bye) !== false){
+    else if($message == "บาย"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
