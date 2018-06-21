@@ -19,12 +19,24 @@
             $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
             replyMsg($arrayHeader,$arrayPostData);
             break;
-        case "Travel":
+        case "เที่ยวไหนดี":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
             $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/midyear2018,feed/th";
             $arrayPostData['messages'][1]['type'] = "text";
             $arrayPostData['messages'][1]['text'] = "https://map.nostramap.com/NostraMap/?layer/sea2018,feed/th";
+            replyMsg($arrayHeader,$arrayPostData);
+            break;
+        case "กินไรดี":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/wongnai,feed/th";
+            replyMsg($arrayHeader,$arrayPostData);
+            break;
+        case "ดูหนังกัน":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "https://www.sfcinemacity.com/showtime/cinema/9924";
             replyMsg($arrayHeader,$arrayPostData);
             break;
         default:
