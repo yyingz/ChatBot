@@ -13,6 +13,7 @@
     $message = $arrayJson['events'][0]['message']['text'];
 
     switch($message) {
+        case "Hi":    
         case "ดีจ้า":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
