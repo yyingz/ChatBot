@@ -20,6 +20,7 @@
             $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
             replyMsg($arrayHeader,$arrayPostData);
             break;
+        case "ไปเที่ยวกัน":
         case "เที่ยวไหนดี":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
@@ -28,6 +29,8 @@
             $arrayPostData['messages'][1]['text'] = "https://map.nostramap.com/NostraMap/?layer/sea2018,feed/th";
             replyMsg($arrayHeader,$arrayPostData);
             break;
+        case "หิว":
+        case "กินข้าวกัน":
         case "กินไรดี":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
