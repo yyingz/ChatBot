@@ -13,7 +13,7 @@
     $message = $arrayJson['events'][0]['message']['text'];
 
     switch($message) {
-        case ("สวัสดี" OR "ดีจ้า"):
+        case "ดีจ้า":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
             $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
@@ -37,6 +37,15 @@
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
             $arrayPostData['messages'][0]['text'] = "https://www.sfcinemacity.com/showtime/cinema/9924";
+            replyMsg($arrayHeader,$arrayPostData);
+            break;
+        case "คิดถึง":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "คิดถึงเหมือนกัน";
+            $arrayPostData['messages'][1]['type'] = "sticker";
+            $arrayPostData['messages'][1]['packageId'] = "1";
+            $arrayPostData['messages'][1]['stickerId'] = "2";
             replyMsg($arrayHeader,$arrayPostData);
             break;
         default:
