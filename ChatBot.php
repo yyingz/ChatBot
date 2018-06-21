@@ -13,18 +13,52 @@
     $message = $arrayJson['events'][0]['message']['text'];
 
     switch($message) {
-        case "สวัสดี" OR "ดีจ้า":
+        case "สวัสดี" OR "ดีจ้า" OR "hello" OR "Hello" OR "Hi" OR "hi":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
             $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
             replyMsg($arrayHeader,$arrayPostData);
             break;
-        case "Travel":
+        case "เที่ยวไหนดี" OR "ไปเที่ยวกัน" OR "อยากไปเที่ยว"  OR "แนะนำที่เที่ยว" OR "แนะนำสถานที่ท่องเที่ยว":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
             $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/midyear2018,feed/th";
             $arrayPostData['messages'][1]['type'] = "text";
             $arrayPostData['messages'][1]['text'] = "https://map.nostramap.com/NostraMap/?layer/sea2018,feed/th";
+            replyMsg($arrayHeader,$arrayPostData);
+            break;
+        case "หิวจัง" OR "กินไรดี" OR "กินข้าวกัน" OR "หิว" OR "กินอะไรดี" OR "แนะนำร้านอาหาร" OR "restaurant":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "https://map.nostramap.com/NostraMap/?layer/michelin,feed/th";
+            $arrayPostData['messages'][1]['type'] = "text";
+            $arrayPostData['messages'][1]['text'] = "https://map.nostramap.com/NostraMap/?layer/wongnai,feed/th";
+            replyMsg($arrayHeader,$arrayPostData);
+            break;
+        case "ดูหนัง" OR "ดูหนังกัน" OR "อยากดูหนัง" OR "movie":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "http://www.majorcineplex.com/booking2/search_showtime/cinema=1";
+            $arrayPostData['messages'][1]['type'] = "text";
+            $arrayPostData['messages'][1]['text'] = "https://www.sfcinemacity.com/showtime/cinema/9924";
+            replyMsg($arrayHeader,$arrayPostData);
+            break;
+        case "คิดถึงจัง" OR "คิดถึง" OR "คิดถึงนะ":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "คิดถึงเหมือนกัน";
+            $arrayPostData['messages'][1]['type'] = "sticker";
+            $arrayPostData['messages'][1]['packageId'] = "1";
+            $arrayPostData['messages'][1]['stickerId'] = "2";
+            replyMsg($arrayHeader,$arrayPostData);
+            break;
+        case "นอน" OR "นอนละ" OR "ง่วง" OR "ฝันดี" OR "ราตรีสวัส" OR "goodnight" OR "Goodnight":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "จะไปแล้วเหรอ";
+            $arrayPostData['messages'][1]['type'] = "sticker";
+            $arrayPostData['messages'][1]['packageId'] = "1";
+            $arrayPostData['messages'][1]['stickerId'] = "9";
             replyMsg($arrayHeader,$arrayPostData);
             break;
         default:
