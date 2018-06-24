@@ -52,23 +52,23 @@
             $arrayPostData['messages'][1]['stickerId'] = "2";
             replyMsg($arrayHeader,$arrayPostData);
             break;
-         case "test":
-            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $arrayPostData['messages'][0]['type'] = "template";
-            $arrayPostData['messages'][0]['altText'] = "This Template";
-            $arrayPostData['messages'][0]['template'] = array("type"=> "buttons",
-                                                              "thumbnailImageUrl"=> "https://example.com/bot/images/image.jpg",
-                                                              "imageAspectRatio"=> "rectangle",
-                                                              "imageSize"=> "cover",
-                                                              "imageBackgroundColor"=> "#FFFFFF",
-                                                              "title"=> "Menu",
-                                                              "text"=> "Please select",
-                                                              "defaultAction"=> {
-                                                                  "type"=> "uri",
-                                                                  "label"=> "View detail",
-                                                                    "uri"=> "http://example.com/page/123");
-            replyMsg($arrayHeader,$arrayPostData);
-            break;
+         case "tm":
+                    $replyData = new TemplateMessageBuilder('Confirm Template',
+                        new ConfirmTemplateBuilder(
+                                'Confirm template builder',
+                                array(
+                                    new MessageTemplateActionBuilder(
+                                        'Yes',
+                                        'Text Yes'
+                                    ),
+                                    new MessageTemplateActionBuilder(
+                                        'No',
+                                        'Text NO'
+                                    )
+                                )
+                        )
+                    );
+                    break; 
         default:
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
