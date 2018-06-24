@@ -53,7 +53,7 @@
             replyMsg($arrayHeader,$arrayPostData);
             break;
          case "tm":
-                    $replyData = new TemplateMessageBuilder('Confirm Template',
+                    $arrayPostData['messages'][0]['template'] = new TemplateMessageBuilder('Confirm Template',
                         new ConfirmTemplateBuilder(
                                 'Confirm template builder',
                                 array(
