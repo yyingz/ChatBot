@@ -52,7 +52,12 @@
             $arrayPostData['messages'][1]['stickerId'] = "2";
             replyMsg($arrayHeader,$arrayPostData);
             break;
-
+         case "test":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "template";
+            $arrayPostData['messages'][0]['altText'] = "This Template";
+            replyMsg($arrayHeader,$arrayPostData);
+            break;
         default:
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
