@@ -52,23 +52,6 @@
             $arrayPostData['messages'][1]['stickerId'] = "2";
             replyMsg($arrayHeader,$arrayPostData);
             break;
-         case "tm":
-                    $arrayPostData['messages'][0]['template'] = new TemplateMessageBuilder('Confirm Template',
-                        new ConfirmTemplateBuilder(
-                                'Confirm template builder',
-                                array(
-                                    new MessageTemplateActionBuilder(
-                                        'Yes',
-                                        'Text Yes'
-                                    ),
-                                    new MessageTemplateActionBuilder(
-                                        'No',
-                                        'Text NO'
-                                    )
-                                )
-                        )
-                    );
-                    break; 
         default:
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
